@@ -48,7 +48,7 @@
         "y": 0.5
       }
     },
-    "grass3.png": {
+    "stone.png": {
       "frame": {
         "x": 0,
         "y": 100,
@@ -76,7 +76,7 @@
   "meta": {
     "app": "http://free-tex-packer.com",
     "version": "0.6.5",
-    "image": "grass.png",
+    "image": "tilemap.png",
     "format": "RGBA8888",
     "size": {
       "w": 36,

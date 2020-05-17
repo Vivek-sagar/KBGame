@@ -57,6 +57,92 @@ const getCoord = (code: number) => {
     return [-1, -1]
 }
 
+const getLetterFromCoord = (coord: number[]) => {
+    var merged = coord[0] * 9 + coord[1]
+    if (merged == 0) {
+        return 'Q'
+    }
+    else if (merged == 1) {
+        return 'W'
+    }
+    else if (merged == 2) {
+        return 'E'
+    }
+    else if (merged == 3) {
+        return 'R'
+    }
+    else if (merged == 4) {
+        return 'T'
+    }
+    else if (merged == 5) {
+        return 'Y'
+    }
+    else if (merged == 6) {
+        return 'U'
+    }
+    else if (merged == 7) {
+        return 'I'
+    }
+    else if (merged == 8) {
+        return 'O'
+    }
+    else if (merged == 9) {
+        return 'A'
+    }
+    else if (merged == 10) {
+        return 'S'
+    }
+    else if (merged == 11) {
+        return 'D'
+    }
+    else if (merged == 12) {
+        return 'F'
+    }
+    else if (merged == 13) {
+        return 'G'
+    }
+    else if (merged == 14) {
+        return 'H'
+    }
+    else if (merged == 15) {
+        return 'J'
+    }
+    else if (merged == 16) {
+        return 'K'
+    }
+    else if (merged == 17) {
+        return 'L'
+    }
+    else if (merged == 18) {
+        return 'Z'
+    }
+    else if (merged == 19) {
+        return 'X'
+    }
+    else if (merged == 20) {
+        return 'C'
+    }
+    else if (merged == 21) {
+        return 'V'
+    }
+    else if (merged == 22) {
+        return 'B'
+    }
+    else if (merged == 23) {
+        return 'N'
+    }
+    else if (merged == 24) {
+        return 'M'
+    }
+    else if (merged == 25) {
+        return ','
+    }
+    else if (merged == 26) {
+        return '.'
+    }
+    return ' '
+}
+
 const getCellIndexFromCoord = (coord: number[]) =>
 {
     return coord[0]*8 + coord[1]
@@ -70,4 +156,5 @@ export {
     getCoord,
     getCellIndexFromCoord,
     getScreenCoordFromCoord,
+    getLetterFromCoord
 }
