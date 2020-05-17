@@ -2,15 +2,28 @@ import Phaser, { Tilemaps } from 'phaser'
 
 import { createCellAnims } from '../Anims/CellAnims'
 import { createUnitAnims } from '../Anims/UnitAnims'
-import { getCoord } from '../Utils/getCoord'
+import { getCoord, getCellIndexFromCoord, getScreenCoordFromCoord } from '../Utils/getCoord'
 
 import Unit from '../Unit'
+import '../Warrior'
+import '../Gatherer'
+import Warrior from '../Warrior'
+import Gatherer from '../Gatherer'
+
+enum Characters{
+    WARRIOR,
+    GATHERER,
+    NONE
+}
 
 export default class Game extends Phaser.Scene
 {
     private gridCoords: [number, number][];
     private cellSprites: Phaser.Physics.Arcade.Sprite[];
-    private unitSprites: Phaser.Physics.Arcade.Sprite[];
+    private units?: Phaser.Physics.Arcade.Group;
+    private warrior?: Warrior;
+    private gatherer?: Gatherer;
+    private selectedChar: Characters
     private gameState;      // 0 - Selection Mode; 1 - Direction Mode
     private selectedCell;
 	constructor()
@@ -18,10 +31,10 @@ export default class Game extends Phaser.Scene
         super('game')
         this.gridCoords = []
         this.cellSprites = []
-        this.unitSprites = []
 
         this.gameState = 0;
-        this.selectedCell = [-1,-1]
+        this.selectedCell = [-1, -1]
+        this.selectedChar = Characters.NONE
 	}
 
 	preload()
@@ -44,8 +57,8 @@ export default class Game extends Phaser.Scene
         
         for (let j = 0; j < 3; j++) {
             for (let i = 0; i < 8; i++) {
-                this.gridCoords.push([100 - (15 * j) + 38 * i, 100 + 28 * j])
-                var sprite = this.physics.add.sprite(100 + (15 * j) + 38 * i, 100 + 28 * j, 'ground_cell', 'grass1.png');
+                this.gridCoords.push([getScreenCoordFromCoord(j, i)[0], getScreenCoordFromCoord(j, i)[1]])
+                var sprite = this.physics.add.sprite(getScreenCoordFromCoord(j, i)[0], getScreenCoordFromCoord(j, i)[1], 'ground_cell', 'grass1.png');
                 this.cellSprites.push(sprite)
             }
         }
@@ -55,12 +68,14 @@ export default class Game extends Phaser.Scene
             cell.anims.play('cell-idle')
         }
 
-        var unit = this.physics.add.sprite(200, 100, 'unit', 'walk-side-1.png')
-        unit.anims.play('unit-idle')
-
-        const allUnits = this.physics.add.group({
+        this.units = this.physics.add.group({
             classType: Unit
         })
+
+        this.units.get(getScreenCoordFromCoord(1,0)[0], getScreenCoordFromCoord(1,0)[1]- 25, 'unit')
+        
+        this.warrior = this.add.warrior(0,0,'unit')
+        this.gatherer = this.add.gatherer(0,0,'unit')
     }
 
     anyKey(event) {
@@ -70,25 +85,44 @@ export default class Game extends Phaser.Scene
         if ((code >= Phaser.Input.Keyboard.KeyCodes.A && code <= Phaser.Input.Keyboard.KeyCodes.Z) ||
             (code == 188 || code == 190))
         {
-            console.log(code)
+            var coord = getCoord(code)
             if (this.gameState == 0) {
-                var coord = getCoord(code)
-                console.log(this.getCellIndexFromCoord(coord))
-                this.cellSprites[this.getCellIndexFromCoord(coord)].anims.play('cell-selected')
+                if (this.warrior) {
+                    var warriorCoords = this.warrior.getCoords()
+                    if (warriorCoords[0] == coord[0] && warriorCoords[1] == coord[1]) {
+                        console.log("Warrior")
+                        this.selectedChar = Characters.WARRIOR
+                    }
+                }
+                if (this.gatherer) {
+                    var gathererCoords = this.gatherer.getCoords()
+                    if (gathererCoords[0] == coord[0] && gathererCoords[1] == coord[1] ) {
+                        console.log("Gatherer")
+                        this.selectedChar = Characters.GATHERER
+                    }
+                }
+                this.cellSprites[getCellIndexFromCoord(coord)].anims.play('cell-selected')
                 this.gameState = 1
                 this.selectedCell = coord
             }
             else if (this.gameState == 1) {
-                this.cellSprites[this.getCellIndexFromCoord(this.selectedCell)].anims.play('cell-idle')
+                this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-idle')
                 this.gameState = 0
-                this.selectedCell = [-1,-1]
+                this.selectedCell = [-1, -1]
+                if (this.warrior) {
+                    if (this.selectedChar == Characters.WARRIOR) {
+                        this.warrior.moveTo(coord)
+                        
+                    }
+                }
+                if (this.gatherer) {
+                    if (this.selectedChar == Characters.GATHERER) {
+                        this.gatherer.moveTo(coord)
+                    }
+                }
+                this.selectedChar == Characters.NONE
             }
         }
-    }
-
-    getCellIndexFromCoord(coord: number[])
-    {
-        return coord[0]*8+coord[1]
     }
 
     update(t: number, dt:number)

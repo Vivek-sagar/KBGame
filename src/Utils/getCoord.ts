@@ -57,6 +57,17 @@ const getCoord = (code: number) => {
     return [-1, -1]
 }
 
+const getCellIndexFromCoord = (coord: number[]) =>
+{
+    return coord[0]*8 + coord[1]
+}
+
+const getScreenCoordFromCoord = (i: number, j: number) => {
+    return [100 + (15 * i) + 38 * j, 100 + 28 * i]
+}
+
 export {
-    getCoord
+    getCoord,
+    getCellIndexFromCoord,
+    getScreenCoordFromCoord,
 }
