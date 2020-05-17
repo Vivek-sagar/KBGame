@@ -4,9 +4,12 @@ import { createCellAnims } from '../Anims/CellAnims'
 import { createUnitAnims } from '../Anims/UnitAnims'
 import { getCoord, getCellIndexFromCoord, getScreenCoordFromCoord, getLetterFromCoord } from '../Utils/getCoord'
 
-import Unit from '../Unit'
+
 import '../Warrior'
 import '../Gatherer'
+import '../Cell'
+import Cell from '../Cell'
+import Unit from '../Unit'
 import Warrior from '../Warrior'
 import Gatherer from '../Gatherer'
 
@@ -20,6 +23,7 @@ export default class Game extends Phaser.Scene
 {
     private gridCoords: [number, number][];
     private cellSprites: Phaser.Physics.Arcade.Sprite[];
+    private cells: Cell[];
     private units?: Phaser.Physics.Arcade.Group;
     private warrior?: Warrior;
     private gatherer?: Gatherer;
@@ -32,46 +36,27 @@ export default class Game extends Phaser.Scene
         super('game')
         this.gridCoords = []
         this.cellSprites = []
+        this.cells = []
 
         this.gameState = 0;
         this.selectedCell = [-1, -1]
         this.selectedChar = Characters.NONE
 	}
 
-    makeMap() {
-        for (let cell of this.gridCoords) {
-            // this.add.image(cell[0], cell[1], 'ground_grass1')
-            
-        }
-    }
-
     create()
     {
         createCellAnims(this.anims)
         createUnitAnims(this.anims)
-        this.makeMap()
         this.input.keyboard.on('keydown', this.anyKey, this);
+        this.input.keyboard.on('keyup', this.anyKeyUp, this);
         
         for (let j = 0; j < 3; j++) {
             for (let i = 0; i < 8; i++) {
                 this.gridCoords.push([getScreenCoordFromCoord(j, i)[0], getScreenCoordFromCoord(j, i)[1]])
-                var spriteName = 'grass1.png'
-                var sprite = this.physics.add.sprite(getScreenCoordFromCoord(j, i)[0], getScreenCoordFromCoord(j, i)[1], 'ground_cell', spriteName);
-                
-                this.cellSprites.push(sprite)
-                var index = getLetterFromCoord([j, i])
-                var letter = this.add.image(getScreenCoordFromCoord(j, i)[0], getScreenCoordFromCoord(j, i)[1]-10, 'key' + (index.charCodeAt(0) - 65).toString())
-                letter.setScale(0.4)
-                sprite.anims.play('cell-idle')
-                if (j == 1 && (i == 3 || i == 6)) {
-                    sprite.anims.play('cell-bump-idle')
-                }
+                var newCell = this.add.cell(getScreenCoordFromCoord(j, i)[0], getScreenCoordFromCoord(j, i)[1], 'cell')
+                newCell.setCoords(this, j, i)
+                this.cells.push(newCell)
             }
-        }
-
-        for (var cell of this.cellSprites)
-        {
-            
         }
 
         this.units = this.physics.add.group({
@@ -84,11 +69,13 @@ export default class Game extends Phaser.Scene
     anyKey(event) {
         //  Only allow A-Z and , and .
         let code = event.keyCode;
-
         if ((code >= Phaser.Input.Keyboard.KeyCodes.A && code <= Phaser.Input.Keyboard.KeyCodes.Z) ||
             (code == 188 || code == 190))
         {
             var coord = getCoord(code)
+            var index = getCellIndexFromCoord(coord)
+            var chosenCell = this.cells[index]
+            chosenCell.keyDown()
             if (this.gameState == 0) {
                 if (this.warrior && !this.warrior.isMoving()) {
                     var warriorCoords = this.warrior.getCoords()
@@ -97,12 +84,7 @@ export default class Game extends Phaser.Scene
                         this.selectedChar = Characters.WARRIOR
                         this.gameState = 1
                         this.selectedCell = coord
-                        if (coord[0] == 1 && (coord[1] == 3 || coord[1] == 6)) {
-                            this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-bump-selected')
-                        }
-                        else {
-                            this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-selected')
-                        }
+                        chosenCell.cellSelected()
                     }
                     
                 }
@@ -113,23 +95,14 @@ export default class Game extends Phaser.Scene
                         this.selectedChar = Characters.GATHERER
                         this.gameState = 1
                         this.selectedCell = coord
-                        if (coord[0] == 1 && (coord[1] == 3 || coord[1] == 6)) {
-                            this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-bump-selected')
-                        }
-                        else {
-                            this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-selected')
-                        }
+                        chosenCell.cellSelected()
                     }
                 }
                 
             }
             else if (this.gameState == 1) {
-                if (this.selectedCell[0] == 1 && (this.selectedCell[1] == 3 || this.selectedCell[1] == 6)) {
-                    this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-bump-idle')
-                }
-                else {
-                    this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-idle')
-                }
+                this.cells[getCellIndexFromCoord(this.selectedCell)].cellDeselected()
+                
                 this.gameState = 0
                 this.selectedCell = [-1, -1]
                 if (this.warrior && !this.warrior.isMoving()) {
@@ -145,6 +118,17 @@ export default class Game extends Phaser.Scene
                 }
                 this.selectedChar == Characters.NONE
             }
+        }
+    }
+
+    anyKeyUp(event) {
+        //  Only allow A-Z and , and .
+        let code = event.keyCode;
+        if ((code >= Phaser.Input.Keyboard.KeyCodes.A && code <= Phaser.Input.Keyboard.KeyCodes.Z) ||
+            (code == 188 || code == 190)) {
+            var coord = getCoord(code)
+            var index = getCellIndexFromCoord(coord)
+            this.cells[index].keyUp()
         }
     }
 
