@@ -87,35 +87,40 @@ export default class Game extends Phaser.Scene
         {
             var coord = getCoord(code)
             if (this.gameState == 0) {
-                if (this.warrior) {
+                if (this.warrior && !this.warrior.isMoving()) {
                     var warriorCoords = this.warrior.getCoords()
                     if (warriorCoords[0] == coord[0] && warriorCoords[1] == coord[1]) {
                         console.log("Warrior")
                         this.selectedChar = Characters.WARRIOR
+                        this.gameState = 1
+                        this.selectedCell = coord
+                        this.cellSprites[getCellIndexFromCoord(coord)].anims.play('cell-selected')
                     }
+                    
                 }
-                if (this.gatherer) {
+                if (this.gatherer && !this.gatherer.isMoving()) {
                     var gathererCoords = this.gatherer.getCoords()
                     if (gathererCoords[0] == coord[0] && gathererCoords[1] == coord[1] ) {
                         console.log("Gatherer")
                         this.selectedChar = Characters.GATHERER
+                        this.gameState = 1
+                        this.selectedCell = coord
+                        this.cellSprites[getCellIndexFromCoord(coord)].anims.play('cell-selected')
                     }
                 }
-                this.cellSprites[getCellIndexFromCoord(coord)].anims.play('cell-selected')
-                this.gameState = 1
-                this.selectedCell = coord
+                
             }
             else if (this.gameState == 1) {
                 this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-idle')
                 this.gameState = 0
                 this.selectedCell = [-1, -1]
-                if (this.warrior) {
+                if (this.warrior && !this.warrior.isMoving()) {
                     if (this.selectedChar == Characters.WARRIOR) {
                         this.warrior.moveTo(coord)
                         
                     }
                 }
-                if (this.gatherer) {
+                if (this.gatherer && !this.gatherer.isMoving()) {
                     if (this.selectedChar == Characters.GATHERER) {
                         this.gatherer.moveTo(coord)
                     }
