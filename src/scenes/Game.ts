@@ -64,7 +64,7 @@ export default class Game extends Phaser.Scene
                 letter.setScale(0.4)
                 sprite.anims.play('cell-idle')
                 if (j == 1 && (i == 3 || i == 6)) {
-                    sprite.anims.play('cell-bump')
+                    sprite.anims.play('cell-bump-idle')
                 }
             }
         }
@@ -97,7 +97,12 @@ export default class Game extends Phaser.Scene
                         this.selectedChar = Characters.WARRIOR
                         this.gameState = 1
                         this.selectedCell = coord
-                        this.cellSprites[getCellIndexFromCoord(coord)].anims.play('cell-selected')
+                        if (coord[0] == 1 && (coord[1] == 3 || coord[1] == 6)) {
+                            this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-bump-selected')
+                        }
+                        else {
+                            this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-selected')
+                        }
                     }
                     
                 }
@@ -108,13 +113,23 @@ export default class Game extends Phaser.Scene
                         this.selectedChar = Characters.GATHERER
                         this.gameState = 1
                         this.selectedCell = coord
-                        this.cellSprites[getCellIndexFromCoord(coord)].anims.play('cell-selected')
+                        if (coord[0] == 1 && (coord[1] == 3 || coord[1] == 6)) {
+                            this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-bump-selected')
+                        }
+                        else {
+                            this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-selected')
+                        }
                     }
                 }
                 
             }
             else if (this.gameState == 1) {
-                this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-idle')
+                if (this.selectedCell[0] == 1 && (this.selectedCell[1] == 3 || this.selectedCell[1] == 6)) {
+                    this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-bump-idle')
+                }
+                else {
+                    this.cellSprites[getCellIndexFromCoord(this.selectedCell)].anims.play('cell-idle')
+                }
                 this.gameState = 0
                 this.selectedCell = [-1, -1]
                 if (this.warrior && !this.warrior.isMoving()) {

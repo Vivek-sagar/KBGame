@@ -7,8 +7,15 @@ const createCellAnims = (anims: Phaser.Animations.AnimationManager) => {
     })
 
     anims.create({
-        key: 'cell-bump',
-        frames: [{ key: 'ground_cell', frame: 'stone.png' }]
+        key: 'cell-bump-idle',
+        frames: [{ key: 'ground_cell', frame: 'bump1.png' }]
+    })
+
+    anims.create({
+        key: 'cell-bump-selected',
+        frames: anims.generateFrameNames('ground_cell', { start: 1, end: 2, prefix: 'bump', suffix: '.png' }),
+        repeat: 3,
+        frameRate: 10
     })
 
     anims.create({

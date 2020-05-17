@@ -1,6 +1,6 @@
 {
   "frames": {
-    "grass1.png": {
+    "bump1.png": {
       "frame": {
         "x": 0,
         "y": 0,
@@ -24,7 +24,7 @@
         "y": 0.5
       }
     },
-    "grass2.png": {
+    "bump2.png": {
       "frame": {
         "x": 0,
         "y": 50,
@@ -48,10 +48,58 @@
         "y": 0.5
       }
     },
-    "stone.png": {
+    "grass1.png": {
       "frame": {
         "x": 0,
         "y": 100,
+        "w": 36,
+        "h": 50
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 36,
+        "h": 50
+      },
+      "sourceSize": {
+        "w": 36,
+        "h": 50
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "grass2.png": {
+      "frame": {
+        "x": 0,
+        "y": 150,
+        "w": 36,
+        "h": 50
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 36,
+        "h": 50
+      },
+      "sourceSize": {
+        "w": 36,
+        "h": 50
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "stone.png": {
+      "frame": {
+        "x": 0,
+        "y": 200,
         "w": 36,
         "h": 50
       },
@@ -80,7 +128,7 @@
     "format": "RGBA8888",
     "size": {
       "w": 36,
-      "h": 150
+      "h": 250
     },
     "scale": 1
   }
