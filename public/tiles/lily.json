@@ -1,0 +1,39 @@
+{
+  "frames": {
+    "Lily pad.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 100,
+        "h": 61
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 24,
+        "w": 100,
+        "h": 61
+      },
+      "sourceSize": {
+        "w": 100,
+        "h": 100
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.5",
+    "image": "lily.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 100,
+      "h": 61
+    },
+    "scale": 1
+  }
+}

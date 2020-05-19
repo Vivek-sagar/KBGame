@@ -14,15 +14,14 @@ export default class Gatherer extends Phaser.Physics.Arcade.Sprite {
     public posj = 0
     public dir = new Phaser.Math.Vector2(0, 0)
     public pxToTime = 24
-    public speed = 2
+    public speed = 5
     public moving = false
     public targetCoord: number[]
     private moveEvent?: Phaser.Time.TimerEvent
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
         super(scene, x, y, texture, frame)
 
-        this.anims.play('unit-idle')
-        this.setTint(0x00ff00)
+        this.anims.play('gatherer-run')
         this.targetCoord = [0,0]
 
         this.setPosition(getScreenCoordFromCoord(this.posi, this.posj)[0], getScreenCoordFromCoord(this.posi, this.posj)[1] - 25)

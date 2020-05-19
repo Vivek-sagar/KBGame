@@ -1,0 +1,255 @@
+{
+  "frames": {
+    "Twinkle-3.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1008,
+        "h": 765
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 1,
+        "w": 1008,
+        "h": 765
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-4.png": {
+      "frame": {
+        "x": 0,
+        "y": 765,
+        "w": 1008,
+        "h": 765
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 1,
+        "w": 1008,
+        "h": 765
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-1.png": {
+      "frame": {
+        "x": 1008,
+        "y": 0,
+        "w": 1024,
+        "h": 764
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 1024,
+        "h": 764
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-10.png": {
+      "frame": {
+        "x": 1008,
+        "y": 764,
+        "w": 1014,
+        "h": 763
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 0,
+        "w": 1014,
+        "h": 763
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-5.png": {
+      "frame": {
+        "x": 2022,
+        "y": 764,
+        "w": 1005,
+        "h": 696
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 19,
+        "y": 65,
+        "w": 1005,
+        "h": 696
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-6.png": {
+      "frame": {
+        "x": 2032,
+        "y": 0,
+        "w": 989,
+        "h": 696
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 35,
+        "y": 65,
+        "w": 989,
+        "h": 696
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-2.png": {
+      "frame": {
+        "x": 1008,
+        "y": 764,
+        "w": 1014,
+        "h": 763
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 0,
+        "w": 1014,
+        "h": 763
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-9.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1008,
+        "h": 765
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 1,
+        "w": 1008,
+        "h": 765
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-8.png": {
+      "frame": {
+        "x": 0,
+        "y": 765,
+        "w": 1008,
+        "h": 765
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 1,
+        "w": 1008,
+        "h": 765
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Twinkle-7.png": {
+      "frame": {
+        "x": 2022,
+        "y": 764,
+        "w": 1005,
+        "h": 696
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 19,
+        "y": 65,
+        "w": 1005,
+        "h": 696
+      },
+      "sourceSize": {
+        "w": 1024,
+        "h": 768
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.5",
+    "image": "twinkles.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 3027,
+      "h": 1530
+    },
+    "scale": 1
+  }
+}

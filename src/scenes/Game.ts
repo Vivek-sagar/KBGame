@@ -41,14 +41,24 @@ export default class Game extends Phaser.Scene
         this.gameState = 0;
         this.selectedCell = [-1, -1]
         this.selectedChar = Characters.NONE
+
+        
 	}
 
     create()
     {
+        this.anims.create({
+            key: 'twinkle',
+            frames: this.anims.generateFrameNames('twinkle', { start: 1, end: 10, prefix: 'Twinkle-', suffix: '.png' }),
+            repeat: -1,
+            frameRate: 5
+        })
         createCellAnims(this.anims)
         createUnitAnims(this.anims)
         this.input.keyboard.on('keydown', this.anyKey, this);
         this.input.keyboard.on('keyup', this.anyKeyUp, this);
+        this.physics.add.sprite(1024 / 2, 787 / 2, 'background')
+        var twinkles = this.physics.add.sprite(1024 / 2, 787 / 2, 'twinkle')
         
         for (let j = 0; j < 3; j++) {
             for (let i = 0; i < 8; i++) {
@@ -63,7 +73,9 @@ export default class Game extends Phaser.Scene
             classType: Unit
         })
         this.warrior = this.add.warrior(0,0,'unit')
-        this.gatherer = this.add.gatherer(0,0,'unit')
+        this.gatherer = this.add.gatherer(0, 0, 'unit')
+        
+        twinkles.anims.play('twinkle')
     }
 
     anyKey(event) {
@@ -158,7 +170,7 @@ export default class Game extends Phaser.Scene
                             })
                         }
                     } while (!validPosition)
-                    var newUnit = this.units.get(getScreenCoordFromCoord(i, j)[0], getScreenCoordFromCoord(i, j)[1] - 25, 'unit')
+                    var newUnit = this.units.get(getScreenCoordFromCoord(i, j)[0], getScreenCoordFromCoord(i, j)[1] - 60, 'unit')
                     newUnit.setCoords(i, j)
                 }
             }

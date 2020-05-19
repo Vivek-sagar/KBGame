@@ -16,17 +16,17 @@ export default class Warrior extends Phaser.Physics.Arcade.Sprite {
     public posj = 0
     public dir = new Phaser.Math.Vector2(0, 0)
     public pxToTime = 24
-    public speed = 1
+    public speed = 3
     public moving = false
     public targetCoord: number[]
     private moveEvent ?: Phaser.Time.TimerEvent
     constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
         super(scene, x, y, texture, frame)
 
-        this.anims.play('unit-idle')
-        this.setTint(0x0000ff)
+        this.anims.play('warrior-run')
         this.targetCoord = [-1, -1]
-        this.setPosition(getScreenCoordFromCoord(this.posi, this.posj)[0], getScreenCoordFromCoord(this.posi, this.posj)[1] - 25)
+        this.setPosition(getScreenCoordFromCoord(this.posi, this.posj)[0], getScreenCoordFromCoord(this.posi, this.posj)[1] - 75)
+        this.setScale(0.8)
     }
 
     destroy(fromScene?: boolean)
@@ -60,7 +60,7 @@ export default class Warrior extends Phaser.Physics.Arcade.Sprite {
                 this.posi = this.targetCoord[0]
                 this.posj = this.targetCoord[1]
                 this.setPosition(getScreenCoordFromCoord(this.posi, this.posj)[0],
-                    getScreenCoordFromCoord(this.posi, this.posj)[1]-25)
+                    getScreenCoordFromCoord(this.posi, this.posj)[1]-75)
                 this.targetCoord = [-1, -1]
                 this.moving = false
             }

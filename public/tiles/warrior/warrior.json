@@ -1,0 +1,111 @@
+{
+  "frames": {
+    "Melee_Run-3.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 188
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 52,
+        "y": 40,
+        "w": 104,
+        "h": 188
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Melee_Run-1.png": {
+      "frame": {
+        "x": 0,
+        "y": 188,
+        "w": 101,
+        "h": 188
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 51,
+        "y": 40,
+        "w": 101,
+        "h": 188
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Melee_Run-4.png": {
+      "frame": {
+        "x": 0,
+        "y": 376,
+        "w": 99,
+        "h": 186
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 53,
+        "y": 39,
+        "w": 99,
+        "h": 186
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Melee_Run-2.png": {
+      "frame": {
+        "x": 0,
+        "y": 562,
+        "w": 99,
+        "h": 184
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 54,
+        "y": 39,
+        "w": 99,
+        "h": 184
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.5",
+    "image": "warrior.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 104,
+      "h": 746
+    },
+    "scale": 1
+  }
+}

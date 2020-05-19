@@ -13,7 +13,7 @@ export default class Preloader extends Phaser.Scene
         this.load.image('ground_grass2', 'tiles/grass2.png')
         this.load.image('ground_stone', 'tiles/stone.png')
 
-        this.load.image('key0',  'tiles/letters/key00000.png')
+        this.load.image('key0',  'tiles/letters/key00000.png',)
         this.load.image('key1',  'tiles/letters/key00001.png')
         this.load.image('key2',  'tiles/letters/key00002.png')
         this.load.image('key3',  'tiles/letters/key00003.png')
@@ -41,10 +41,16 @@ export default class Preloader extends Phaser.Scene
         this.load.image('key25', 'tiles/letters/key00025.png')
         this.load.image('key26', 'tiles/letters/key00026.png')
         this.load.image('key27', 'tiles/letters/key00027.png')
+        this.load.image('background', 'tiles/background/BG.png')
 
         this.load.atlas('ground_cell', 'tiles/tilemap/grass.png', 'tiles/tilemap/grass.json')
-        this.load.atlas('unit', 'tiles/faune/faune.png', 'tiles/faune/faune.json')
-        this.load.atlas('unit', 'tiles/faune/faune.png', 'tiles/faune/faune.json')
+        this.load.atlas('lily', 'tiles/lily.png', 'tiles/lily.json')
+        this.load.atlas('twinkle', 'tiles/twinkle/twinkles.png', 'tiles/twinkle/twinkles.json')
+        // this.load.atlas('unit', 'tiles/faune/faune.png', 'tiles/faune/faune.json')
+        // this.load.atlas('unit', 'tiles/faune/faune.png', 'tiles/faune/faune.json')
+        this.load.atlas('unit', 'tiles/enemy/enemy.png', 'tiles/enemy/enemy.json')
+        this.load.atlas('warrior', 'tiles/warrior/warrior.png', 'tiles/warrior/warrior.json')
+        this.load.atlas('gatherer', 'tiles/gatherer/gatherer.png', 'tiles/gatherer/gatherer.json')
     }
 
     create()

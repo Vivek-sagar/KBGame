@@ -1,0 +1,303 @@
+{
+  "frames": {
+    "Gobble_Gobble-4.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 116,
+        "h": 164
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 78,
+        "y": 60,
+        "w": 116,
+        "h": 164
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Gobble-3.png": {
+      "frame": {
+        "x": 0,
+        "y": 164,
+        "w": 106,
+        "h": 153
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 56,
+        "y": 70,
+        "w": 106,
+        "h": 153
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Gobble-1.png": {
+      "frame": {
+        "x": 0,
+        "y": 317,
+        "w": 103,
+        "h": 131
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 59,
+        "y": 92,
+        "w": 103,
+        "h": 131
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Gobble-7.png": {
+      "frame": {
+        "x": 0,
+        "y": 448,
+        "w": 103,
+        "h": 131
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 59,
+        "y": 92,
+        "w": 103,
+        "h": 131
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Gobble-5.png": {
+      "frame": {
+        "x": 0,
+        "y": 579,
+        "w": 154,
+        "h": 129
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 65,
+        "y": 91,
+        "w": 154,
+        "h": 129
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Gobble-2.png": {
+      "frame": {
+        "x": 103,
+        "y": 317,
+        "w": 120,
+        "h": 124
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 31,
+        "y": 100,
+        "w": 120,
+        "h": 124
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Gobble-6.png": {
+      "frame": {
+        "x": 103,
+        "y": 441,
+        "w": 141,
+        "h": 121
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 58,
+        "y": 99,
+        "w": 141,
+        "h": 121
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Move-3.png": {
+      "frame": {
+        "x": 106,
+        "y": 164,
+        "w": 61,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 96,
+        "y": 77,
+        "w": 61,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Move-4.png": {
+      "frame": {
+        "x": 167,
+        "y": 164,
+        "w": 61,
+        "h": 89
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 96,
+        "y": 61,
+        "w": 61,
+        "h": 89
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Move-5.png": {
+      "frame": {
+        "x": 116,
+        "y": 0,
+        "w": 61,
+        "h": 89
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 97,
+        "y": 55,
+        "w": 61,
+        "h": 89
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Move-2.png": {
+      "frame": {
+        "x": 116,
+        "y": 89,
+        "w": 79,
+        "h": 73
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 86,
+        "y": 98,
+        "w": 79,
+        "h": 73
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "Gobble_Move-1.png": {
+      "frame": {
+        "x": 177,
+        "y": 0,
+        "w": 64,
+        "h": 83
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 95,
+        "y": 88,
+        "w": 64,
+        "h": 83
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 256
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.5",
+    "image": "gatherer.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 244,
+      "h": 708
+    },
+    "scale": 1
+  }
+}

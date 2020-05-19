@@ -25,7 +25,7 @@ export default class Cell extends Phaser.Physics.Arcade.Sprite
         var index = getLetterFromCoord([i, j])
         this.posi = i
         this.posj = j
-        this.letter = scene.physics.add.sprite(getScreenCoordFromCoord(i, j)[0], getScreenCoordFromCoord(i, j)[1] - 10, 'key' + (index.charCodeAt(0) - 65).toString())
+        this.letter = scene.physics.add.sprite(getScreenCoordFromCoord(i, j)[0], getScreenCoordFromCoord(i, j)[1], 'key' + (index.charCodeAt(0) - 65).toString())
         this.letter.setScale(0.4)
         this.cellDeselected()
     }

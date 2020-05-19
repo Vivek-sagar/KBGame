@@ -10,7 +10,6 @@ export default class Unit extends Phaser.Physics.Arcade.Sprite
         super(scene, x, y, texture, frame)
         
         this.anims.play('unit-idle')
-        this.setTint(0xff0000);
 
         this.spawnEvent = scene.time.addEvent({
             delay: 1000,
@@ -18,6 +17,7 @@ export default class Unit extends Phaser.Physics.Arcade.Sprite
                 this.startAttack()
             }
         })
+        this.setScale(0.5)
     }
 
     public setCoords(i: number, j: number) {

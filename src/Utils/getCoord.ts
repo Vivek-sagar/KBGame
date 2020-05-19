@@ -149,7 +149,7 @@ const getCellIndexFromCoord = (coord: number[]) =>
 }
 
 const getScreenCoordFromCoord = (i: number, j: number) => {
-    return [100 + (15 * i) + 38 * j, 100 + 28 * i]
+    return [150 + (15 * i) + 100 * j, 470 + 50 * i]
 }
 
 export {
