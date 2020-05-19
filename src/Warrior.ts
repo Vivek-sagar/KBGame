@@ -65,6 +65,7 @@ export default class Warrior extends Phaser.Physics.Arcade.Sprite {
                 this.moving = false
             }
         })
+        this.setDepth(this.targetCoord[0])
     }
 }
 

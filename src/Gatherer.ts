@@ -61,6 +61,7 @@ export default class Gatherer extends Phaser.Physics.Arcade.Sprite {
                 this.moving = false
             }
         })
+        this.setDepth(this.targetCoord[0])
     }
 }
 

@@ -12,6 +12,7 @@ export default class Preloader extends Phaser.Scene
         this.load.image('ground_grass1', 'tiles/grass1.png')
         this.load.image('ground_grass2', 'tiles/grass2.png')
         this.load.image('ground_stone', 'tiles/stone.png')
+        this.load.image('red', 'tiles/red.png')
 
         this.load.image('key0',  'tiles/letters/key00000.png',)
         this.load.image('key1',  'tiles/letters/key00001.png')
