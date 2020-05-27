@@ -73,9 +73,18 @@ export default class Game extends Phaser.Scene
             classType: Unit
         })
         this.warrior = this.add.warrior(0,0,'unit')
+        this.warrior.body.setSize(80,200)
         this.gatherer = this.add.gatherer(0, 0, 'unit')
-        
+        this.gatherer.body.setSize(80,120)
+        // this.gatherer.body.updateCenter()
         twinkles.anims.play('twinkle')
+
+        this.physics.add.overlap(this.warrior, this.units, this.WarriorEnemyCollision, undefined, this)
+    }
+
+    private WarriorEnemyCollision(warrior: Phaser.GameObjects.GameObject, hitUnit:Phaser.GameObjects.GameObject){
+        this.units?.remove(hitUnit)
+        hitUnit.destroy(true)
     }
 
     anyKey(event) {
@@ -171,6 +180,8 @@ export default class Game extends Phaser.Scene
                         }
                     } while (!validPosition)
                     var newUnit = this.units.get(getScreenCoordFromCoord(i, j)[0], getScreenCoordFromCoord(i, j)[1] - 60, 'unit')
+                    // newUnit.body.offset.x = 80
+                    newUnit.body.setSize(120,300)
                     newUnit.setCoords(i, j)
                 }
             }

@@ -83,6 +83,7 @@ export default class Unit extends Phaser.Physics.Arcade.Sprite
     destroy(fromScene?: boolean)
     {
         this.moveEvent?.destroy()
+        this.attackEvent.destroy()
         super.destroy(fromScene)
     }
 }
