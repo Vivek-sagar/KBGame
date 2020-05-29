@@ -52,6 +52,7 @@ export default class Preloader extends Phaser.Scene
         this.load.atlas('unit', 'tiles/enemy/enemy.png', 'tiles/enemy/enemy.json')
         this.load.atlas('warrior', 'tiles/warrior/warrior.png', 'tiles/warrior/warrior.json')
         this.load.atlas('gatherer', 'tiles/gatherer/gatherer.png', 'tiles/gatherer/gatherer.json')
+        this.load.atlas('gem', 'tiles/gem/gem.png', 'tiles/gem/gem.json')
     }
 
     create()

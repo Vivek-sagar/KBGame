@@ -1,4 +1,4 @@
-import Phaser, { Tilemaps } from 'phaser'
+import Phaser, { Tilemaps, Geom } from 'phaser'
 
 import { createCellAnims } from '../Anims/CellAnims'
 import { createUnitAnims } from '../Anims/UnitAnims'
@@ -8,10 +8,12 @@ import { getCoord, getCellIndexFromCoord, getScreenCoordFromCoord, getLetterFrom
 import '../Warrior'
 import '../Gatherer'
 import '../Cell'
+import '../Gem'
 import Cell from '../Cell'
 import Unit from '../Unit'
 import Warrior from '../Warrior'
 import Gatherer from '../Gatherer'
+import Gem from '../Gem'
 
 enum Characters{
     WARRIOR,
@@ -24,9 +26,10 @@ export default class Game extends Phaser.Scene
     private gridCoords: [number, number][];
     private cellSprites: Phaser.Physics.Arcade.Sprite[];
     private cells: Cell[];
-    private units?: Phaser.Physics.Arcade.Group;
+    private units!: Phaser.Physics.Arcade.Group;
     private warrior?: Warrior;
     private gatherer?: Gatherer;
+    private gems!: Phaser.Physics.Arcade.Group;
     private selectedChar: Characters
     private gameState;      // 0 - Selection Mode; 1 - Direction Mode
     private selectedCell;
@@ -72,6 +75,9 @@ export default class Game extends Phaser.Scene
         this.units = this.physics.add.group({
             classType: Unit
         })
+        this.gems = this.physics.add.group({
+            classType: Gem
+        })
         this.warrior = this.add.warrior(0,0,'unit')
         this.warrior.body.setSize(80,200)
         this.gatherer = this.add.gatherer(0, 0, 'unit')
@@ -82,9 +88,14 @@ export default class Game extends Phaser.Scene
         this.physics.add.overlap(this.warrior, this.units, this.WarriorEnemyCollision, undefined, this)
     }
 
-    private WarriorEnemyCollision(warrior: Phaser.GameObjects.GameObject, hitUnit:Phaser.GameObjects.GameObject){
+    private WarriorEnemyCollision(warrior: Phaser.GameObjects.GameObject, hitUnitObj:Phaser.GameObjects.GameObject){
+        var hitUnit = hitUnitObj as Unit;
+        var newGem = this.gems.get(getScreenCoordFromCoord(hitUnit.posi, hitUnit.posj)[0],getScreenCoordFromCoord(hitUnit.posi, hitUnit.posj)[1],'unit' )
+        newGem.setSize(100,100)
         this.units?.remove(hitUnit)
         hitUnit.destroy(true)
+        
+
     }
 
     anyKey(event) {

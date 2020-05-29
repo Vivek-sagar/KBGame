@@ -28,6 +28,13 @@ const createUnitAnims = (anims: Phaser.Animations.AnimationManager) => {
         repeat: -1,
         frameRate: 8
     })
+
+    anims.create({
+        key: 'gem',
+        frames: anims.generateFrameNames('gem', { start: 1, end: 5, prefix: 'Gem-', suffix: '.png' }),
+        repeat: -1,
+        frameRate: 8
+    })
 }
 
 export {
