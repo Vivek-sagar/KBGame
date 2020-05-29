@@ -79,13 +79,18 @@ export default class Game extends Phaser.Scene
             classType: Gem
         })
         this.warrior = this.add.warrior(0,0,'unit')
-        this.warrior.body.setSize(80,200)
+        this.warrior.body.setSize(80,50)
+        this.warrior.body.offset.x = 80
+        this.warrior.body.offset.y = 170
         this.gatherer = this.add.gatherer(0, 0, 'unit')
-        this.gatherer.body.setSize(80,120)
+        this.gatherer.body.setSize(60,50)
+        this.gatherer.body.offset.x = 95
+        this.gatherer.body.offset.y = 120
         // this.gatherer.body.updateCenter()
         twinkles.anims.play('twinkle')
 
         this.physics.add.overlap(this.warrior, this.units, this.WarriorEnemyCollision, undefined, this)
+        this.physics.add.overlap(this.gatherer, this.gems, this.GathererGemCollision, undefined, this)
     }
 
     private WarriorEnemyCollision(warrior: Phaser.GameObjects.GameObject, hitUnitObj:Phaser.GameObjects.GameObject){
@@ -94,8 +99,11 @@ export default class Game extends Phaser.Scene
         newGem.setSize(100,100)
         this.units?.remove(hitUnit)
         hitUnit.destroy(true)
-        
+    }
 
+    private GathererGemCollision(gatherer: Phaser.GameObjects.GameObject, gem:Phaser.GameObjects.GameObject){
+        this.gems.remove(gem)
+        gem.destroy(true)
     }
 
     anyKey(event) {
@@ -113,6 +121,7 @@ export default class Game extends Phaser.Scene
                     var warriorCoords = this.warrior.getCoords()
                     if (warriorCoords[0] == coord[0] && warriorCoords[1] == coord[1]) {
                         console.log("Warrior")
+                        this.warrior.Selected()
                         this.selectedChar = Characters.WARRIOR
                         this.gameState = 1
                         this.selectedCell = coord
@@ -124,6 +133,7 @@ export default class Game extends Phaser.Scene
                     var gathererCoords = this.gatherer.getCoords()
                     if (gathererCoords[0] == coord[0] && gathererCoords[1] == coord[1] ) {
                         console.log("Gatherer")
+                        this.gatherer.Selected()
                         this.selectedChar = Characters.GATHERER
                         this.gameState = 1
                         this.selectedCell = coord
@@ -140,12 +150,13 @@ export default class Game extends Phaser.Scene
                 if (this.warrior && !this.warrior.isMoving()) {
                     if (this.selectedChar == Characters.WARRIOR) {
                         this.warrior.moveTo(coord)
-                        
+                        this.warrior.Deselected()
                     }
                 }
                 if (this.gatherer && !this.gatherer.isMoving()) {
                     if (this.selectedChar == Characters.GATHERER) {
                         this.gatherer.moveTo(coord)
+                        this.gatherer.Deselected()
                     }
                 }
                 this.selectedChar == Characters.NONE
@@ -192,7 +203,9 @@ export default class Game extends Phaser.Scene
                     } while (!validPosition)
                     var newUnit = this.units.get(getScreenCoordFromCoord(i, j)[0], getScreenCoordFromCoord(i, j)[1] - 60, 'unit')
                     // newUnit.body.offset.x = 80
-                    newUnit.body.setSize(120,300)
+                    newUnit.body.setSize(120,80)
+                    newUnit.body.offset.y = 200
+                    newUnit.body.offset.x = 70
                     newUnit.setCoords(i, j)
                 }
             }

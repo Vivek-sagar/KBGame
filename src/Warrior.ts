@@ -67,6 +67,14 @@ export default class Warrior extends Phaser.Physics.Arcade.Sprite {
         })
         this.setDepth(this.targetCoord[0])
     }
+
+    public Selected(){
+        this.setTint(0xffff55);
+    }
+
+    public Deselected(){
+        this.setTint(0xffffff);
+    }
 }
 
 Phaser.GameObjects.GameObjectFactory.register('warrior', function (this: Phaser.GameObjects.GameObjectFactory, x: number, y: number, texture: string, frame?: string | number){
